@@ -8,12 +8,12 @@
     <b-row class="mt-5">
       <b-col cols="12" md="6">
         <p>Nombre</p>
-        <b-form-input type="text" v-model="nuevaFruta" md="4"></b-form-input>
+        <b-form-input type="text" v-model="nuevaFruta" v-on:keyup.enter="agregarFruta"></b-form-input>
       </b-col>
       
       <b-col cols="12" md="6">
         <p>Cantidad</p>
-        <b-form-input type="number" v-model="cantidadFruta" md="4"></b-form-input>
+        <b-form-input type="number" v-model="cantidadFruta" v-on:keyup.enter="agregarFruta"></b-form-input>
       </b-col>
 
     </b-row>
