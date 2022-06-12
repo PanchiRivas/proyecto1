@@ -13,7 +13,7 @@
       
       <b-col cols="12" md="6">
         <p>Cantidad</p>
-        <b-form-input type="number" v-model="cantidadFruta" v-on:keyup.enter="agregarFruta"></b-form-input>
+        <b-form-input type="number" v-model.number="cantidadFruta" v-on:keyup.enter="agregarFruta"></b-form-input>
       </b-col>
 
     </b-row>
@@ -22,8 +22,10 @@
 
     <ul class="mt-5">
       <li v-for="fruta of frutas" v-bind:key="fruta">
+        <b-button variant="danger" @click="fruta.cantidad--"> - </b-button>
         {{fruta.nombre}} - {{fruta.cantidad}}
-        <span v-if="fruta.cantidad===0"> - Sin Stock</span>
+        <b-button variant="success" @click="fruta.cantidad++"> + </b-button>
+        <span v-if="fruta.cantidad===0"> Selecciona una cantidad</span>
       </li>
     </ul>
 
@@ -54,7 +56,9 @@ export default {
       //this para acceder a datos de data
       this.frutas.push({
         nombre: this.nuevaFruta, cantidad: this.cantidadFruta
-      })
+      });
+      this.nuevaFruta='';
+      this.cantidadFruta= null;
     }
   }
 }
